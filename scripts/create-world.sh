@@ -15,20 +15,19 @@ if [ -f "$SAVE_FILE" ]; then
     exit 1
 fi
 
-# Build the create command
-CMD="/opt/factorio/bin/x64/factorio --create $SAVE_FILE"
-CMD="$CMD --map-gen-settings /factorio/config/map-gen-settings.json"
-CMD="$CMD --map-settings /factorio/config/map-settings.json"
+# Build command arguments array-style to avoid eval
+FACTORIO_BIN="/opt/factorio/bin/x64/factorio"
+ARGS="--create $SAVE_FILE --map-gen-settings /factorio/config/map-gen-settings.json --map-settings /factorio/config/map-settings.json"
 
 if [ -n "${MAP_SEED:-}" ]; then
     echo "Using seed: $MAP_SEED"
-    CMD="$CMD --map-gen-seed $MAP_SEED"
+    ARGS="$ARGS --map-gen-seed $MAP_SEED"
 else
     echo "Using random seed"
 fi
 
 echo "Creating world: $SAVE_FILE"
-eval "$CMD"
+$FACTORIO_BIN $ARGS
 
 echo "=== World created successfully ==="
 ls -la /factorio/saves/

@@ -80,7 +80,7 @@ services:
       - ./output/maps:/output
       - ./scripts:/scripts:ro
     working_dir: /output
-    entrypoint: ["/bin/sh", "/scripts/gen-map.sh"]
+    entrypoint: ["/scripts/gen-map.sh"]
 
   # ===========================================================================
   # World Creator (one-shot service)
@@ -98,7 +98,7 @@ services:
       - ./data/mods:/factorio/mods:ro
       - ./config:/factorio/config:ro
       - ./scripts:/scripts:ro
-    entrypoint: ["/bin/sh", "/scripts/create-world.sh"]
+    entrypoint: ["/scripts/create-world.sh"]
 
 # =============================================================================
 # Secrets Configuration

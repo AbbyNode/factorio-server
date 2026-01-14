@@ -27,4 +27,8 @@ else
 fi
 
 echo "=== Map previews generated in /output ==="
-ls -la /output/*.png 2>/dev/null || echo "No PNG files found"
+if [ -n "$(find /output -maxdepth 1 -name '*.png' 2>/dev/null)" ]; then
+    ls -la /output/*.png
+else
+    echo "No PNG files found"
+fi
