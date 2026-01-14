@@ -1,0 +1,736 @@
+factorio-server  | +++ readlink -f /docker-entrypoint.sh
+factorio-server  | ++ dirname /docker-entrypoint.sh
+factorio-server  | + INSTALLED_DIRECTORY=/
+factorio-server  | + FACTORIO_VOL=/factorio
+factorio-server  | + LOAD_LATEST_SAVE=true
+factorio-server  | + GENERATE_NEW_SAVE=true
+factorio-server  | + PRESET=
+factorio-server  | + SAVE_NAME=world
+factorio-server  | + BIND=
+factorio-server  | + CONSOLE_LOG_LOCATION=
+factorio-server  | + mkdir -p /factorio
+factorio-server  | + mkdir -p /factorio/saves
+factorio-server  | + mkdir -p /factorio/config
+factorio-server  | + mkdir -p /factorio/mods
+factorio-server  | + mkdir -p /factorio/scenarios
+factorio-server  | + mkdir -p /factorio/script-output
+factorio-server  | + [[ ! -f /factorio/config/rconpw ]]
+factorio-server  | + pwgen 15 1
+factorio-server  | + [[ ! -f /factorio/config/server-settings.json ]]
+factorio-server  | + [[ ! -f /factorio/config/map-gen-settings.json ]]
+factorio-server  | + [[ ! -f /factorio/config/map-settings.json ]]
+factorio-server  | ++ find -L /factorio/saves -iname '*.tmp.zip' -mindepth 1
+factorio-server  | ++ wc -l
+factorio-server  | + NRTMPSAVES=0
+factorio-server  | + [[ 0 -gt 0 ]]
+factorio-server  | + [[ true == \t\r\u\e ]]
+factorio-server  | + //docker-update-mods.sh
+factorio-server  | + //docker-dlc.sh
+factorio-server  | Enable mod elevated-rails for DLC
+factorio-server  | Enable mod quality for DLC
+factorio-server  | Enable mod space-age for DLC
+factorio-server  | + EXEC=
+factorio-server  | ++ id -u
+factorio-server  | + [[ 0 == 0 ]]
+factorio-server  | + usermod -o -u 845 factorio
+factorio-server  | usermod: no changes
+factorio-server  | + groupmod -o -g 845 factorio
+factorio-server  | + chown -R factorio:factorio /factorio
+factorio-server  | + EXEC='runuser -u factorio -g factorio --'
+factorio-server  | + source //setup-exec.sh
+factorio-server  | ++ [[ -z runuser -u factorio -g factorio -- ]]
+factorio-server  | ++ [[ -f /bin/box64 ]]
+factorio-server  | ++ export EXEC
+factorio-server  | + sed -i '/write-data=/c\write-data=\/factorio/' /opt/factorio/config/config.ini
+factorio-server  | ++ find -L /factorio/saves -iname '*.zip' -mindepth 1
+factorio-server  | ++ wc -l
+factorio-server  | + NRSAVES=0
+factorio-server  | + [[ true != true ]]
+factorio-server  | + [[ true == true ]]
+factorio-server  | + [[ -z world ]]
+factorio-server  | + [[ -f /factorio/saves/world.zip ]]
+factorio-server  | + [[ ! -z '' ]]
+factorio-server  | + runuser -u factorio -g factorio -- /opt/factorio/bin/x64/factorio --create /factorio/saves/world.zip --map-gen-settings /factorio/config/map-gen-settings.json --map-settings /factorio/config/map-settings.json
+factorio-server  |    0.000 2026-01-14 05:59:42; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+factorio-server  |    0.000 Operating system: Linux
+factorio-server  |    0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--create" "/factorio/saves/world.zip" "--map-gen-settings" "/factorio/config/map-gen-settings.json" "--map-settings" "/factorio/config/map-settings.json" 
+factorio-server  |    0.000 Config path: /opt/factorio/config/config.ini
+factorio-server  |    0.000 Read data path: /opt/factorio/data
+factorio-server  |    0.000 Write data path: /factorio [53162/195776MB]
+factorio-server  |    0.000 Binaries path: /opt/factorio/bin
+factorio-server  |    0.005 System info: [CPU: AMD Ryzen 9 5900X 12-Core Processor, 24 cores, RAM: 32010 MB]
+factorio-server  |    0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+factorio-server  |    0.006 Running in headless mode
+factorio-server  |    0.006 Audio is disabled
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag freezing = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag quality = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag space-travel = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag spoiling = true
+factorio-server  |    0.008 Loading mod core 0.0.0 (data.lua)
+factorio-server  |    0.018 Loading mod base 2.0.72 (data.lua)
+factorio-server  |    0.115 Loading mod elevated-rails 2.0.72 (data.lua)
+factorio-server  |    0.132 Loading mod quality 2.0.72 (data.lua)
+factorio-server  |    0.142 Loading mod space-age 2.0.72 (data.lua)
+factorio-server  |    0.284 Loading mod base 2.0.72 (data-updates.lua)
+factorio-server  |    0.292 Loading mod quality 2.0.72 (data-updates.lua)
+factorio-server  |    0.305 Loading mod space-age 2.0.72 (data-updates.lua)
+factorio-server  |    0.370 Checksum for core: 3316885848
+factorio-server  |    0.370 Checksum of base: 1879415942
+factorio-server  |    0.370 Checksum of elevated-rails: 70351106
+factorio-server  |    0.370 Checksum of quality: 1142589254
+factorio-server  |    0.370 Checksum of space-age: 1510664043
+factorio-server  |    0.626 Prototype list checksum: 3295867752
+factorio-server  |    0.666 Info PlayerData.cpp:66: Local player-data.json unavailable
+factorio-server  |    0.666 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+factorio-server  |    0.667 Factorio initialised
+factorio-server  |    0.697 Goodbye
+factorio-server  |    0.000 Error Util.cpp:81: Key "overload_levels" not found in property tree at ROOT.path_finder
+factorio-server  | +++ readlink -f /docker-entrypoint.sh
+factorio-server  | ++ dirname /docker-entrypoint.sh
+factorio-server  | + INSTALLED_DIRECTORY=/
+factorio-server  | + FACTORIO_VOL=/factorio
+factorio-server  | + LOAD_LATEST_SAVE=true
+factorio-server  | + GENERATE_NEW_SAVE=true
+factorio-server  | + PRESET=
+factorio-server  | + SAVE_NAME=world
+factorio-server  | + BIND=
+factorio-server  | + CONSOLE_LOG_LOCATION=
+factorio-server  | + mkdir -p /factorio
+factorio-server  | + mkdir -p /factorio/saves
+factorio-server  | + mkdir -p /factorio/config
+factorio-server  | + mkdir -p /factorio/mods
+factorio-server  | + mkdir -p /factorio/scenarios
+factorio-server  | + mkdir -p /factorio/script-output
+factorio-server  | + [[ ! -f /factorio/config/rconpw ]]
+factorio-server  | + [[ ! -f /factorio/config/server-settings.json ]]
+factorio-server  | + [[ ! -f /factorio/config/map-gen-settings.json ]]
+factorio-server  | + [[ ! -f /factorio/config/map-settings.json ]]
+factorio-server  | ++ find -L /factorio/saves -iname '*.tmp.zip' -mindepth 1
+factorio-server  | ++ wc -l
+factorio-server  | + NRTMPSAVES=0
+factorio-server  | + [[ 0 -gt 0 ]]
+factorio-server  | + [[ true == \t\r\u\e ]]
+factorio-server  | + //docker-update-mods.sh
+factorio-server  | + //docker-dlc.sh
+factorio-server  | Enable mod elevated-rails for DLC
+factorio-server  | Enable mod quality for DLC
+factorio-server  | Enable mod space-age for DLC
+factorio-server  | + EXEC=
+factorio-server  | ++ id -u
+factorio-server  | + [[ 0 == 0 ]]
+factorio-server  | + usermod -o -u 845 factorio
+factorio-server  | usermod: no changes
+factorio-server  | + groupmod -o -g 845 factorio
+factorio-server  | + chown -R factorio:factorio /factorio
+factorio-server  | + EXEC='runuser -u factorio -g factorio --'
+factorio-server  | + source //setup-exec.sh
+factorio-server  | ++ [[ -z runuser -u factorio -g factorio -- ]]
+factorio-server  | ++ [[ -f /bin/box64 ]]
+factorio-server  | ++ export EXEC
+factorio-server  | + sed -i '/write-data=/c\write-data=\/factorio/' /opt/factorio/config/config.ini
+factorio-server  | ++ find -L /factorio/saves -iname '*.zip' -mindepth 1
+factorio-server  | ++ wc -l
+factorio-server  | + NRSAVES=0
+factorio-server  | + [[ true != true ]]
+factorio-server  | + [[ true == true ]]
+factorio-server  | + [[ -z world ]]
+factorio-server  | + [[ -f /factorio/saves/world.zip ]]
+factorio-server  | + [[ ! -z '' ]]
+factorio-server  | + runuser -u factorio -g factorio -- /opt/factorio/bin/x64/factorio --create /factorio/saves/world.zip --map-gen-settings /factorio/config/map-gen-settings.json --map-settings /factorio/config/map-settings.json
+factorio-server  |    0.000 2026-01-14 05:59:43; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+factorio-server  |    0.000 Operating system: Linux
+factorio-server  |    0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--create" "/factorio/saves/world.zip" "--map-gen-settings" "/factorio/config/map-gen-settings.json" "--map-settings" "/factorio/config/map-settings.json" 
+factorio-server  |    0.000 Config path: /opt/factorio/config/config.ini
+factorio-server  |    0.000 Read data path: /opt/factorio/data
+factorio-server  |    0.000 Write data path: /factorio [53162/195776MB]
+factorio-server  |    0.000 Binaries path: /opt/factorio/bin
+factorio-server  |    0.005 System info: [CPU: AMD Ryzen 9 5900X 12-Core Processor, 24 cores, RAM: 32010 MB]
+factorio-server  |    0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+factorio-server  |    0.006 Running in headless mode
+factorio-server  |    0.006 Audio is disabled
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag freezing = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag quality = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag space-travel = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag spoiling = true
+factorio-server  |    0.008 Loading mod core 0.0.0 (data.lua)
+factorio-server  |    0.018 Loading mod base 2.0.72 (data.lua)
+factorio-server  |    0.120 Loading mod elevated-rails 2.0.72 (data.lua)
+factorio-server  |    0.133 Loading mod quality 2.0.72 (data.lua)
+factorio-server  |    0.141 Loading mod space-age 2.0.72 (data.lua)
+factorio-server  |    0.277 Loading mod base 2.0.72 (data-updates.lua)
+factorio-server  |    0.284 Loading mod quality 2.0.72 (data-updates.lua)
+factorio-server  |    0.297 Loading mod space-age 2.0.72 (data-updates.lua)
+factorio-server  |    0.359 Checksum for core: 3316885848
+factorio-server  |    0.359 Checksum of base: 1879415942
+factorio-server  |    0.359 Checksum of elevated-rails: 70351106
+factorio-server  |    0.359 Checksum of quality: 1142589254
+factorio-server  |    0.359 Checksum of space-age: 1510664043
+factorio-server  |    0.610 Prototype list checksum: 3295867752
+factorio-server  |    0.649 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1768370383
+factorio-server  |    0.649 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+factorio-server  |    0.650 Factorio initialised
+factorio-server  |    0.680 Goodbye
+factorio-server  |    0.000 Error Util.cpp:81: Key "overload_levels" not found in property tree at ROOT.path_finder
+factorio-server  | +++ readlink -f /docker-entrypoint.sh
+factorio-server  | ++ dirname /docker-entrypoint.sh
+factorio-server  | + INSTALLED_DIRECTORY=/
+factorio-server  | + FACTORIO_VOL=/factorio
+factorio-server  | + LOAD_LATEST_SAVE=true
+factorio-server  | + GENERATE_NEW_SAVE=true
+factorio-server  | + PRESET=
+factorio-server  | + SAVE_NAME=world
+factorio-server  | + BIND=
+factorio-server  | + CONSOLE_LOG_LOCATION=
+factorio-server  | + mkdir -p /factorio
+factorio-server  | + mkdir -p /factorio/saves
+factorio-server  | + mkdir -p /factorio/config
+factorio-server  | + mkdir -p /factorio/mods
+factorio-server  | + mkdir -p /factorio/scenarios
+factorio-server  | + mkdir -p /factorio/script-output
+factorio-server  | + [[ ! -f /factorio/config/rconpw ]]
+factorio-server  | + [[ ! -f /factorio/config/server-settings.json ]]
+factorio-server  | + [[ ! -f /factorio/config/map-gen-settings.json ]]
+factorio-server  | + [[ ! -f /factorio/config/map-settings.json ]]
+factorio-server  | ++ find -L /factorio/saves -iname '*.tmp.zip' -mindepth 1
+factorio-server  | ++ wc -l
+factorio-server  | + NRTMPSAVES=0
+factorio-server  | + [[ 0 -gt 0 ]]
+factorio-server  | + [[ true == \t\r\u\e ]]
+factorio-server  | + //docker-update-mods.sh
+factorio-server  | + //docker-dlc.sh
+factorio-server  | Enable mod elevated-rails for DLC
+factorio-server  | Enable mod quality for DLC
+factorio-server  | Enable mod space-age for DLC
+factorio-server  | + EXEC=
+factorio-server  | ++ id -u
+factorio-server  | + [[ 0 == 0 ]]
+factorio-server  | + usermod -o -u 845 factorio
+factorio-server  | usermod: no changes
+factorio-server  | + groupmod -o -g 845 factorio
+factorio-server  | + chown -R factorio:factorio /factorio
+factorio-server  | + EXEC='runuser -u factorio -g factorio --'
+factorio-server  | + source //setup-exec.sh
+factorio-server  | ++ [[ -z runuser -u factorio -g factorio -- ]]
+factorio-server  | ++ [[ -f /bin/box64 ]]
+factorio-server  | ++ export EXEC
+factorio-server  | + sed -i '/write-data=/c\write-data=\/factorio/' /opt/factorio/config/config.ini
+factorio-server  | ++ find -L /factorio/saves -iname '*.zip' -mindepth 1
+factorio-server  | ++ wc -l
+factorio-server  | + NRSAVES=0
+factorio-server  | + [[ true != true ]]
+factorio-server  | + [[ true == true ]]
+factorio-server  | + [[ -z world ]]
+factorio-server  | + [[ -f /factorio/saves/world.zip ]]
+factorio-server  | + [[ ! -z '' ]]
+factorio-server  | + runuser -u factorio -g factorio -- /opt/factorio/bin/x64/factorio --create /factorio/saves/world.zip --map-gen-settings /factorio/config/map-gen-settings.json --map-settings /factorio/config/map-settings.json
+factorio-server  |    0.000 2026-01-14 05:59:44; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+factorio-server  |    0.000 Operating system: Linux
+factorio-server  |    0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--create" "/factorio/saves/world.zip" "--map-gen-settings" "/factorio/config/map-gen-settings.json" "--map-settings" "/factorio/config/map-settings.json" 
+factorio-server  |    0.000 Config path: /opt/factorio/config/config.ini
+factorio-server  |    0.000 Read data path: /opt/factorio/data
+factorio-server  |    0.000 Write data path: /factorio [53162/195776MB]
+factorio-server  |    0.000 Binaries path: /opt/factorio/bin
+factorio-server  |    0.006 System info: [CPU: AMD Ryzen 9 5900X 12-Core Processor, 24 cores, RAM: 32010 MB]
+factorio-server  |    0.006 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+factorio-server  |    0.006 Running in headless mode
+factorio-server  |    0.006 Audio is disabled
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag freezing = true
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag quality = true
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag space-travel = true
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag spoiling = true
+factorio-server  |    0.009 Loading mod core 0.0.0 (data.lua)
+factorio-server  |    0.018 Loading mod base 2.0.72 (data.lua)
+factorio-server  |    0.117 Loading mod elevated-rails 2.0.72 (data.lua)
+factorio-server  |    0.133 Loading mod quality 2.0.72 (data.lua)
+factorio-server  |    0.142 Loading mod space-age 2.0.72 (data.lua)
+factorio-server  |    0.305 Loading mod base 2.0.72 (data-updates.lua)
+factorio-server  |    0.313 Loading mod quality 2.0.72 (data-updates.lua)
+factorio-server  |    0.326 Loading mod space-age 2.0.72 (data-updates.lua)
+factorio-server  |    0.386 Checksum for core: 3316885848
+factorio-server  |    0.386 Checksum of base: 1879415942
+factorio-server  |    0.386 Checksum of elevated-rails: 70351106
+factorio-server  |    0.386 Checksum of quality: 1142589254
+factorio-server  |    0.386 Checksum of space-age: 1510664043
+factorio-server  |    0.668 Prototype list checksum: 3295867752
+factorio-server  |    0.710 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1768370384
+factorio-server  |    0.710 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+factorio-server  |    0.711 Factorio initialised
+factorio-server  |    0.743 Goodbye
+factorio-server  |    0.000 Error Util.cpp:81: Key "overload_levels" not found in property tree at ROOT.path_finder
+factorio-server  | +++ readlink -f /docker-entrypoint.sh
+factorio-server  | ++ dirname /docker-entrypoint.sh
+factorio-server  | + INSTALLED_DIRECTORY=/
+factorio-server  | + FACTORIO_VOL=/factorio
+factorio-server  | + LOAD_LATEST_SAVE=true
+factorio-server  | + GENERATE_NEW_SAVE=true
+factorio-server  | + PRESET=
+factorio-server  | + SAVE_NAME=world
+factorio-server  | + BIND=
+factorio-server  | + CONSOLE_LOG_LOCATION=
+factorio-server  | + mkdir -p /factorio
+factorio-server  | + mkdir -p /factorio/saves
+factorio-server  | + mkdir -p /factorio/config
+factorio-server  | + mkdir -p /factorio/mods
+factorio-server  | + mkdir -p /factorio/scenarios
+factorio-server  | + mkdir -p /factorio/script-output
+factorio-server  | + [[ ! -f /factorio/config/rconpw ]]
+factorio-server  | + [[ ! -f /factorio/config/server-settings.json ]]
+factorio-server  | + [[ ! -f /factorio/config/map-gen-settings.json ]]
+factorio-server  | + [[ ! -f /factorio/config/map-settings.json ]]
+factorio-server  | ++ find -L /factorio/saves -iname '*.tmp.zip' -mindepth 1
+factorio-server  | ++ wc -l
+factorio-server  | + NRTMPSAVES=0
+factorio-server  | + [[ 0 -gt 0 ]]
+factorio-server  | + [[ true == \t\r\u\e ]]
+factorio-server  | + //docker-update-mods.sh
+factorio-server  | Checking for update of mod assemblyanalyst for factorio 2.0.72 ...
+factorio-server  |   Downloading assemblyanalyst_2.0.6.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod AutoDeconstruct for factorio 2.0.72 ...
+factorio-server  |   Downloading AutoDeconstruct_1.0.10.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Automatic_Train_Painter for factorio 2.0.72 ...
+factorio-server  |   Downloading Automatic_Train_Painter_2.0.1.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Avatars for factorio 2.0.72 ...
+factorio-server  |   Downloading Avatars_0.7.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod awesome-rqm for factorio 2.0.72 ...
+factorio-server  |   Downloading awesome-rqm_0.5.7.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod belt-visualizer for factorio 2.0.72 ...
+factorio-server  |   Downloading belt-visualizer_2.0.2.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Belt_Glow for factorio 2.0.72 ...
+factorio-server  |   Downloading Belt_Glow_1.4.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod BetterAlertArrows for factorio 2.0.72 ...
+factorio-server  |   Downloading BetterAlertArrows_1.1.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod blueprint-sandboxes for factorio 2.0.72 ...
+factorio-server  |   Downloading blueprint-sandboxes_3.2.2.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod BottleneckLite for factorio 2.0.72 ...
+factorio-server  |   Downloading BottleneckLite_1.3.4.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod bullet-trails for factorio 2.0.72 ...
+factorio-server  |   Downloading bullet-trails_0.7.1.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod cardinal for factorio 2.0.72 ...
+factorio-server  |   Downloading cardinal_1.0.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod CleanFloor for factorio 2.0.72 ...
+factorio-server  |   Downloading CleanFloor_2.0.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod companion-drones-mjlfix for factorio 2.0.72 ...
+factorio-server  |   Downloading companion-drones-mjlfix_3.1.2.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Constructron-Continued for factorio 2.0.72 ...
+factorio-server  |   Downloading Constructron-Continued_2.0.39.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod CursorEnhancements for factorio 2.0.72 ...
+factorio-server  |   Downloading CursorEnhancements_2.2.2.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod deadlock-beltboxes-loaders for factorio 2.0.72 ...
+factorio-server  |   Downloading deadlock-beltboxes-loaders_2.6.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod EvenDistributionLite for factorio 2.0.72 ...
+factorio-server  |   Downloading EvenDistributionLite_1.4.5.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod factorissimo-2-notnotmelon for factorio 2.0.72 ...
+factorio-server  |   Downloading factorissimo-2-notnotmelon_3.11.1.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod factoryplanner for factorio 2.0.72 ...
+factorio-server  |   Downloading factoryplanner_2.0.43.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod FactorySearch for factorio 2.0.72 ...
+factorio-server  |   Downloading FactorySearch_1.14.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod flib for factorio 2.0.72 ...
+factorio-server  |   Downloading flib_0.16.5.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Flow Control for factorio 2.0.72 ...
+factorio-server  |   Downloading Flow Control_3.2.3.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod FluidMustFlow for factorio 2.0.72 ...
+factorio-server  |   Downloading FluidMustFlow_1.4.4.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod gear-girl for factorio 2.0.72 ...
+factorio-server  |   Downloading gear-girl_1.1.2.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod gridlines for factorio 2.0.72 ...
+factorio-server  |   Downloading gridlines_1.3.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod GUI_Unifyer for factorio 2.0.72 ...
+factorio-server  |   Downloading GUI_Unifyer_2.0.1.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Gun_Turret_Alerts for factorio 2.0.72 ...
+factorio-server  |   Downloading Gun_Turret_Alerts_2.0.11.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod inserter-throughput-lib for factorio 2.0.72 ...
+factorio-server  |   Downloading inserter-throughput-lib_2.0.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod inventory-repair for factorio 2.0.72 ...
+factorio-server  |   Downloading inventory-repair_20.0.3.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Kux-CoreLib for factorio 2.0.72 ...
+factorio-server  |   Downloading Kux-CoreLib_3.17.8.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Kux-CraftingTools for factorio 2.0.72 ...
+factorio-server  |   Downloading Kux-CraftingTools_3.2.8.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Kux-ZoomRunning for factorio 2.0.72 ...
+factorio-server  |   Downloading Kux-ZoomRunning_3.3.2.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod lightorio for factorio 2.0.72 ...
+factorio-server  |   Downloading lightorio_2.0.1.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod LogisticTrainNetwork for factorio 2.0.72 ...
+factorio-server  |   Downloading LogisticTrainNetwork_2.6.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod lordodin_no_drains for factorio 2.0.72 ...
+factorio-server  |   Downloading lordodin_no_drains_2.0.2.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod LtnManager for factorio 2.0.72 ...
+factorio-server  |   Downloading LtnManager_0.5.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod LTN_Combinator_Modernized for factorio 2.0.72 ...
+factorio-server  |   Downloading LTN_Combinator_Modernized_2.2.7.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod mining-patch-planner for factorio 2.0.72 ...
+factorio-server  |   Downloading mining-patch-planner_1.7.15.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod NewGirlCharacterHR-fork for factorio 2.0.72 ...
+factorio-server  |   Downloading NewGirlCharacterHR-fork_2.0.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod pipe-visualization-overlay for factorio 2.0.72 ...
+factorio-server  |   Downloading pipe-visualization-overlay_1.0.1.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Placeables for factorio 2.0.72 ...
+factorio-server  |   Downloading Placeables_1.5.4.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Pro-Flashlight for factorio 2.0.72 ...
+factorio-server  |   Downloading Pro-Flashlight_1.5.8.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod qol_research for factorio 2.0.72 ...
+factorio-server  |   Downloading qol_research_3.4.2.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod quick-adjustable-inserters for factorio 2.0.72 ...
+factorio-server  |   Downloading quick-adjustable-inserters_2.0.11.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod quick-ride for factorio 2.0.72 ...
+factorio-server  |   Downloading quick-ride_1.2.5.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod QuickbarTemplates for factorio 2.0.72 ...
+factorio-server  |   Downloading QuickbarTemplates_2.3.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod RailSignalPlanner for factorio 2.0.72 ...
+factorio-server  |   Downloading RailSignalPlanner_2.0.3.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Repair_Turret for factorio 2.0.72 ...
+factorio-server  |   Downloading Repair_Turret_2.0.4.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod resourceMarker for factorio 2.0.72 ...
+factorio-server  |   Downloading resourceMarker_0.8.33.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod RPGsystem for factorio 2.0.72 ...
+factorio-server  |   Downloading RPGsystem_2.0.7.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Shortcuts-ick for factorio 2.0.72 ...
+factorio-server  |   Downloading Shortcuts-ick_2.0.7.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod show-missing-bottles-for-current-research for factorio 2.0.72 ...
+factorio-server  |   Downloading show-missing-bottles-for-current-research_2.0.2.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod skins-factored for factorio 2.0.72 ...
+factorio-server  |   Downloading skins-factored_1.3.5.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod SmoothWarnings for factorio 2.0.72 ...
+factorio-server  |   Downloading SmoothWarnings_2.0.2.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod SpidertronEnhancements for factorio 2.0.72 ...
+factorio-server  |   Downloading SpidertronEnhancements_1.10.8.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod squeak-through-2 for factorio 2.0.72 ...
+factorio-server  |   Downloading squeak-through-2_0.1.3.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Teleporters for factorio 2.0.72 ...
+factorio-server  |   Downloading Teleporters_2.0.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod toolbars-mod for factorio 2.0.72 ...
+factorio-server  |   Downloading toolbars-mod_2.38.3.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod tree_collision for factorio 2.0.72 ...
+factorio-server  |   Downloading tree_collision_2.0.0.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Updated_Construction_Drones for factorio 2.0.72 ...
+factorio-server  |   Downloading Updated_Construction_Drones_2.0.4.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod valves for factorio 2.0.72 ...
+factorio-server  |   Downloading valves_2.1.1.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod visible-planets for factorio 2.0.72 ...
+factorio-server  |   Downloading visible-planets_1.6.1.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Warehousing for factorio 2.0.72 ...
+factorio-server  |   Downloading Warehousing_1.0.3.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod Waterfill_v17 for factorio 2.0.72 ...
+factorio-server  |   Downloading Waterfill_v17_2.0.5.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod WhereIsMyBody for factorio 2.0.72 ...
+factorio-server  |   Downloading WhereIsMyBody_2.0.15.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | Checking for update of mod WideChests for factorio 2.0.72 ...
+factorio-server  |   Downloading WideChests_6.2.4.zip
+factorio-server  |   Download failed: Code 403.
+factorio-server  | + //docker-dlc.sh
+factorio-server  | Enable mod elevated-rails for DLC
+factorio-server  | Enable mod quality for DLC
+factorio-server  | Enable mod space-age for DLC
+factorio-server  | + EXEC=
+factorio-server  | ++ id -u
+factorio-server  | + [[ 0 == 0 ]]
+factorio-server  | + usermod -o -u 845 factorio
+factorio-server  | usermod: no changes
+factorio-server  | + groupmod -o -g 845 factorio
+factorio-server  | + chown -R factorio:factorio /factorio
+factorio-server  | + EXEC='runuser -u factorio -g factorio --'
+factorio-server  | + source //setup-exec.sh
+factorio-server  | ++ [[ -z runuser -u factorio -g factorio -- ]]
+factorio-server  | ++ [[ -f /bin/box64 ]]
+factorio-server  | ++ export EXEC
+factorio-server  | + sed -i '/write-data=/c\write-data=\/factorio/' /opt/factorio/config/config.ini
+factorio-server  | ++ find -L /factorio/saves -iname '*.zip' -mindepth 1
+factorio-server  | ++ wc -l
+factorio-server  | + NRSAVES=0
+factorio-server  | + [[ true != true ]]
+factorio-server  | + [[ true == true ]]
+factorio-server  | + [[ -z world ]]
+factorio-server  | + [[ -f /factorio/saves/world.zip ]]
+factorio-server  | + [[ ! -z '' ]]
+factorio-server  | + runuser -u factorio -g factorio -- /opt/factorio/bin/x64/factorio --create /factorio/saves/world.zip --map-gen-settings /factorio/config/map-gen-settings.json --map-settings /factorio/config/map-settings.json
+factorio-server  |    0.000 2026-01-14 06:01:48; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+factorio-server  |    0.000 Operating system: Linux
+factorio-server  |    0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--create" "/factorio/saves/world.zip" "--map-gen-settings" "/factorio/config/map-gen-settings.json" "--map-settings" "/factorio/config/map-settings.json" 
+factorio-server  |    0.000 Config path: /opt/factorio/config/config.ini
+factorio-server  |    0.000 Read data path: /opt/factorio/data
+factorio-server  |    0.000 Write data path: /factorio [53162/195776MB]
+factorio-server  |    0.000 Binaries path: /opt/factorio/bin
+factorio-server  |    0.005 System info: [CPU: AMD Ryzen 9 5900X 12-Core Processor, 24 cores, RAM: 32010 MB]
+factorio-server  |    0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+factorio-server  |    0.006 Running in headless mode
+factorio-server  |    0.006 Audio is disabled
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag freezing = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag quality = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag space-travel = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag spoiling = true
+factorio-server  |    0.008 Loading mod core 0.0.0 (data.lua)
+factorio-server  |    0.018 Loading mod base 2.0.72 (data.lua)
+factorio-server  |    0.115 Loading mod elevated-rails 2.0.72 (data.lua)
+factorio-server  |    0.131 Loading mod quality 2.0.72 (data.lua)
+factorio-server  |    0.139 Loading mod space-age 2.0.72 (data.lua)
+factorio-server  |    0.285 Loading mod base 2.0.72 (data-updates.lua)
+factorio-server  |    0.294 Loading mod quality 2.0.72 (data-updates.lua)
+factorio-server  |    0.306 Loading mod space-age 2.0.72 (data-updates.lua)
+factorio-server  |    0.374 Checksum for core: 3316885848
+factorio-server  |    0.374 Checksum of base: 1879415942
+factorio-server  |    0.374 Checksum of elevated-rails: 70351106
+factorio-server  |    0.374 Checksum of quality: 1142589254
+factorio-server  |    0.374 Checksum of space-age: 1510664043
+factorio-server  |    0.641 Prototype list checksum: 3295867752
+factorio-server  |    0.685 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1768370385
+factorio-server  |    0.686 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+factorio-server  |    0.687 Factorio initialised
+factorio-server  |    0.718 Goodbye
+factorio-server  |    0.000 Error Util.cpp:81: Key "overload_levels" not found in property tree at ROOT.path_finder
+factorio-server  | +++ readlink -f /docker-entrypoint.sh
+factorio-server  | ++ dirname /docker-entrypoint.sh
+factorio-server  | + INSTALLED_DIRECTORY=/
+factorio-server  | + FACTORIO_VOL=/factorio
+factorio-server  | + LOAD_LATEST_SAVE=true
+factorio-server  | + GENERATE_NEW_SAVE=true
+factorio-server  | + PRESET=
+factorio-server  | + SAVE_NAME=world
+factorio-server  | + BIND=
+factorio-server  | + CONSOLE_LOG_LOCATION=
+factorio-server  | + mkdir -p /factorio
+factorio-server  | + mkdir -p /factorio/saves
+factorio-server  | + mkdir -p /factorio/config
+factorio-server  | + mkdir -p /factorio/mods
+factorio-server  | + mkdir -p /factorio/scenarios
+factorio-server  | + mkdir -p /factorio/script-output
+factorio-server  | + [[ ! -f /factorio/config/rconpw ]]
+factorio-server  | + [[ ! -f /factorio/config/server-settings.json ]]
+factorio-server  | + [[ ! -f /factorio/config/map-gen-settings.json ]]
+factorio-server  | + [[ ! -f /factorio/config/map-settings.json ]]
+factorio-server  | ++ find -L /factorio/saves -iname '*.tmp.zip' -mindepth 1
+factorio-server  | ++ wc -l
+factorio-server  | + NRTMPSAVES=0
+factorio-server  | + [[ 0 -gt 0 ]]
+factorio-server  | + [[ true == \t\r\u\e ]]
+factorio-server  | + //docker-update-mods.sh
+factorio-server  | + //docker-dlc.sh
+factorio-server  | Enable mod elevated-rails for DLC
+factorio-server  | Enable mod quality for DLC
+factorio-server  | Enable mod space-age for DLC
+factorio-server  | + EXEC=
+factorio-server  | ++ id -u
+factorio-server  | + [[ 0 == 0 ]]
+factorio-server  | + usermod -o -u 845 factorio
+factorio-server  | usermod: no changes
+factorio-server  | + groupmod -o -g 845 factorio
+factorio-server  | + chown -R factorio:factorio /factorio
+factorio-server  | + EXEC='runuser -u factorio -g factorio --'
+factorio-server  | + source //setup-exec.sh
+factorio-server  | ++ [[ -z runuser -u factorio -g factorio -- ]]
+factorio-server  | ++ [[ -f /bin/box64 ]]
+factorio-server  | ++ export EXEC
+factorio-server  | + sed -i '/write-data=/c\write-data=\/factorio/' /opt/factorio/config/config.ini
+factorio-server  | ++ find -L /factorio/saves -iname '*.zip' -mindepth 1
+factorio-server  | ++ wc -l
+factorio-server  | + NRSAVES=0
+factorio-server  | + [[ true != true ]]
+factorio-server  | + [[ true == true ]]
+factorio-server  | + [[ -z world ]]
+factorio-server  | + [[ -f /factorio/saves/world.zip ]]
+factorio-server  | + [[ ! -z '' ]]
+factorio-server  | + runuser -u factorio -g factorio -- /opt/factorio/bin/x64/factorio --create /factorio/saves/world.zip --map-gen-settings /factorio/config/map-gen-settings.json --map-settings /factorio/config/map-settings.json
+factorio-server  |    0.000 2026-01-14 06:01:49; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+factorio-server  |    0.000 Operating system: Linux
+factorio-server  |    0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--create" "/factorio/saves/world.zip" "--map-gen-settings" "/factorio/config/map-gen-settings.json" "--map-settings" "/factorio/config/map-settings.json" 
+factorio-server  |    0.000 Config path: /opt/factorio/config/config.ini
+factorio-server  |    0.000 Read data path: /opt/factorio/data
+factorio-server  |    0.000 Write data path: /factorio [53162/195776MB]
+factorio-server  |    0.000 Binaries path: /opt/factorio/bin
+factorio-server  |    0.005 System info: [CPU: AMD Ryzen 9 5900X 12-Core Processor, 24 cores, RAM: 32010 MB]
+factorio-server  |    0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+factorio-server  |    0.006 Running in headless mode
+factorio-server  |    0.006 Audio is disabled
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag freezing = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag quality = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag space-travel = true
+factorio-server  |    0.006 Info ModManager.cpp:446: FeatureFlag spoiling = true
+factorio-server  |    0.008 Loading mod core 0.0.0 (data.lua)
+factorio-server  |    0.019 Loading mod base 2.0.72 (data.lua)
+factorio-server  |    0.121 Loading mod elevated-rails 2.0.72 (data.lua)
+factorio-server  |    0.136 Loading mod quality 2.0.72 (data.lua)
+factorio-server  |    0.145 Loading mod space-age 2.0.72 (data.lua)
+factorio-server  |    0.289 Loading mod base 2.0.72 (data-updates.lua)
+factorio-server  |    0.298 Loading mod quality 2.0.72 (data-updates.lua)
+factorio-server  |    0.313 Loading mod space-age 2.0.72 (data-updates.lua)
+factorio-server  |    0.378 Checksum for core: 3316885848
+factorio-server  |    0.378 Checksum of base: 1879415942
+factorio-server  |    0.378 Checksum of elevated-rails: 70351106
+factorio-server  |    0.378 Checksum of quality: 1142589254
+factorio-server  |    0.378 Checksum of space-age: 1510664043
+factorio-server  |    0.646 Prototype list checksum: 3295867752
+factorio-server  |    0.688 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1768370509
+factorio-server  |    0.688 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+factorio-server  |    0.689 Factorio initialised
+factorio-server  |    0.721 Goodbye
+factorio-server  |    0.000 Error Util.cpp:81: Key "overload_levels" not found in property tree at ROOT.path_finder
+factorio-server  | +++ readlink -f /docker-entrypoint.sh
+factorio-server  | ++ dirname /docker-entrypoint.sh
+factorio-server  | + INSTALLED_DIRECTORY=/
+factorio-server  | + FACTORIO_VOL=/factorio
+factorio-server  | + LOAD_LATEST_SAVE=true
+factorio-server  | + GENERATE_NEW_SAVE=true
+factorio-server  | + PRESET=
+factorio-server  | + SAVE_NAME=world
+factorio-server  | + BIND=
+factorio-server  | + CONSOLE_LOG_LOCATION=
+factorio-server  | + mkdir -p /factorio
+factorio-server  | + mkdir -p /factorio/saves
+factorio-server  | + mkdir -p /factorio/config
+factorio-server  | + mkdir -p /factorio/mods
+factorio-server  | + mkdir -p /factorio/scenarios
+factorio-server  | + mkdir -p /factorio/script-output
+factorio-server  | + [[ ! -f /factorio/config/rconpw ]]
+factorio-server  | + [[ ! -f /factorio/config/server-settings.json ]]
+factorio-server  | + [[ ! -f /factorio/config/map-gen-settings.json ]]
+factorio-server  | + [[ ! -f /factorio/config/map-settings.json ]]
+factorio-server  | ++ find -L /factorio/saves -iname '*.tmp.zip' -mindepth 1
+factorio-server  | ++ wc -l
+factorio-server  | + NRTMPSAVES=0
+factorio-server  | + [[ 0 -gt 0 ]]
+factorio-server  | + [[ true == \t\r\u\e ]]
+factorio-server  | + //docker-update-mods.sh
+factorio-server  | + //docker-dlc.sh
+factorio-server  | Enable mod elevated-rails for DLC
+factorio-server  | Enable mod quality for DLC
+factorio-server  | Enable mod space-age for DLC
+factorio-server  | + EXEC=
+factorio-server  | ++ id -u
+factorio-server  | + [[ 0 == 0 ]]
+factorio-server  | + usermod -o -u 845 factorio
+factorio-server  | usermod: no changes
+factorio-server  | + groupmod -o -g 845 factorio
+factorio-server  | + chown -R factorio:factorio /factorio
+factorio-server  | + EXEC='runuser -u factorio -g factorio --'
+factorio-server  | + source //setup-exec.sh
+factorio-server  | ++ [[ -z runuser -u factorio -g factorio -- ]]
+factorio-server  | ++ [[ -f /bin/box64 ]]
+factorio-server  | ++ export EXEC
+factorio-server  | + sed -i '/write-data=/c\write-data=\/factorio/' /opt/factorio/config/config.ini
+factorio-server  | ++ find -L /factorio/saves -iname '*.zip' -mindepth 1
+factorio-server  | ++ wc -l
+factorio-server  | + NRSAVES=0
+factorio-server  | + [[ true != true ]]
+factorio-server  | + [[ true == true ]]
+factorio-server  | + [[ -z world ]]
+factorio-server  | + [[ -f /factorio/saves/world.zip ]]
+factorio-server  | + [[ ! -z '' ]]
+factorio-server  | + runuser -u factorio -g factorio -- /opt/factorio/bin/x64/factorio --create /factorio/saves/world.zip --map-gen-settings /factorio/config/map-gen-settings.json --map-settings /factorio/config/map-settings.json
+factorio-server  |    0.000 2026-01-14 06:01:51; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+factorio-server  |    0.000 Operating system: Linux
+factorio-server  |    0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--create" "/factorio/saves/world.zip" "--map-gen-settings" "/factorio/config/map-gen-settings.json" "--map-settings" "/factorio/config/map-settings.json" 
+factorio-server  |    0.000 Config path: /opt/factorio/config/config.ini
+factorio-server  |    0.000 Read data path: /opt/factorio/data
+factorio-server  |    0.000 Write data path: /factorio [53162/195776MB]
+factorio-server  |    0.000 Binaries path: /opt/factorio/bin
+factorio-server  |    0.005 System info: [CPU: AMD Ryzen 9 5900X 12-Core Processor, 24 cores, RAM: 32010 MB]
+factorio-server  |    0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+factorio-server  |    0.006 Running in headless mode
+factorio-server  |    0.006 Audio is disabled
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag freezing = true
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag quality = true
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag space-travel = true
+factorio-server  |    0.007 Info ModManager.cpp:446: FeatureFlag spoiling = true
+factorio-server  |    0.009 Loading mod core 0.0.0 (data.lua)
+factorio-server  |    0.018 Loading mod base 2.0.72 (data.lua)
+factorio-server  |    0.115 Loading mod elevated-rails 2.0.72 (data.lua)
+factorio-server  |    0.131 Loading mod quality 2.0.72 (data.lua)
+factorio-server  |    0.141 Loading mod space-age 2.0.72 (data.lua)
+factorio-server  |    0.290 Loading mod base 2.0.72 (data-updates.lua)
+factorio-server  |    0.298 Loading mod quality 2.0.72 (data-updates.lua)
+factorio-server  |    0.314 Loading mod space-age 2.0.72 (data-updates.lua)
+factorio-server  |    0.386 Checksum for core: 3316885848
+factorio-server  |    0.386 Checksum of base: 1879415942
+factorio-server  |    0.386 Checksum of elevated-rails: 70351106
+factorio-server  |    0.386 Checksum of quality: 1142589254
+factorio-server  |    0.386 Checksum of space-age: 1510664043
+factorio-server  |    0.663 Prototype list checksum: 3295867752
+factorio-server  |    0.710 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1768370510
+factorio-server  |    0.710 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+factorio-server  |    0.711 Factorio initialised
+factorio-server  |    0.746 Goodbye
+factorio-server  |    0.000 Error Util.cpp:81: Key "overload_levels" not found in property tree at ROOT.path_finder
