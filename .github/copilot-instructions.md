@@ -10,14 +10,14 @@
 
 # Docker Guidelines
 
-* Prefer official Docker images when functionality can be achieved easily with them.
+* Prefer official or popular Docker images when functionality can be achieved easily with them.
 * Create custom images only when necessary for specific custom functionality.
 * Never put code execution logic directly in compose files.
 * Never bind mount files directly as this interferes with first time creation.
     * Bind mounts should only be used for directories.
     * Use `ln` inside containers to isolate to-be-bound files into bound directories.
-* Never run bash scripts on the host machine.
-    * All scripts must run inside containers.
+* End user must never need to run bash scripts on the host machine.
+    * All scripts the end user needs must run inside containers, ideally through a docker-compose profile.
 
 ## Style
 
@@ -26,22 +26,5 @@
 
 ### Cohesion with Existing Code
 * New work should be cohesive with existing code.
-* Refer to the same game files when possible.
 * Use similar approaches to existing implementations.
-
-## Workflow
-
-### Developer
-Developers use `build.compose.yml` to build and push Docker images:
-```bash
-docker compose -f build.compose.yml build
-docker compose -f build.compose.yml push
-```
-
-### End User
-End users only need the single `docker-compose.yml` file. They don't clone the repository:
-```bash
-curl -O https://raw.githubusercontent.com/AbbyNode/factorio-server/main/docker-compose.yml
-docker compose pull
-docker compose up -d
-```
+* Refer to the same files across containers when possible instead of duplicating them.
