@@ -1,0 +1,85 @@
+=========================
+
+Configs
+
+=========================
+
+
+=========================
+EXE
+=========================
+File: Factorio.exe
+Path: E:\Games\SteamLibrary\steamapps\common\Factorio
+Purpose: Game and/or Server
+Help: https://wiki.factorio.com/Command_line_parameters
+
+
+=========================
+Batch
+=========================
+File: run-server.bat
+Path: E:\Games\Servers\Factorio\batch
+Purpose: Execute exe with options
+Help: https://wiki.factorio.com/Command_line_parameters
+Link: CONFIG INI, SERVER CONFIG, SAVES, EXE
+
+
+=========================
+INI
+=========================
+File: config.ini
+Path: E:\Games\Servers\Factorio\config\[WORLD_NAME]
+Purpose: Various settings for exe to use
+Help: https://wiki.factorio.com/Application_directory
+Link: DATA DIR
+
+
+=========================
+SERVER CONFIG
+=========================
+File: server-settings, server-whitelist, map-settings, map-gen-settings
+Path: E:\Games\Servers\Factorio\config\[WORLD_NAME]
+Purpose: Server settings
+Help: 
+
+
+=========================
+DATA DIR
+=========================
+File: data (dir)
+Path: E:\Games\Servers\Factorio\server_data\[WORLD_NAME]
+Purpose: System files including session .lock
+Help: 
+
+read-data=E:\Games\SteamLibrary\steamapps\common\Factorio\data
+write-data=E:\Games\Servers\Factorio\server_data\[WORLD_NAME]
+
+
+=========================
+SAVES
+=========================
+File: [WORLD_NAME].zip
+Path: E:\Games\Servers\Factorio\saves
+Purpose: Main game save (auto backup is under DATA DIR)
+Help: 
+
+
+=========================
+BACKUP
+=========================
+File: [WORLD_NAME].zip
+Path: E:\Data\Games\Factorio\Backups\Worlds\[YEAR]\[WORLD_NAME]\[MONTH]_[DAY]_[#]\
+Purpose: Manual backups
+Help: 
+
+
+=========================
+
+=========================
+File: 
+Path: 
+Purpose: 
+Help: 
+Link: 
+
+
