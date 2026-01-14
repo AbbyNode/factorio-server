@@ -1,3 +1,0 @@
-Run command in game to get map-gen-settings.json from Exchange String
-
-/c game.write_file('map-gen-settings-messy.json', game.table_to_json(game.parse_map_exchange_string('EXCHANGE_STRING')))
