@@ -4,8 +4,8 @@
 # 
 # Usage:
 #   1. Copy .env.example to .env and configure
-#   2. Generate map previews: docker compose --profile gen-map run gen-map
-#   3. Create world: docker compose --profile create-world run create-world
+#   2. Generate map previews: docker compose --profile gen-map run --rm gen-map
+#   3. Create world: docker compose --profile create-world run --rm create-world
 #   4. Start server: docker compose up -d factorio
 #   5. Backups run automatically via borgmatic
 #
@@ -20,8 +20,8 @@ services:
     container_name: factorio-server
     restart: unless-stopped
     ports:
-      - "${PORT:-34197}:34197/udp"
-      - "${RCON_PORT:-27015}:27015/tcp"
+      - "34197:34197/udp"
+      - "27015:27015/tcp"
     environment:
       - SAVE_NAME=${SAVE_NAME:-world}
       - GENERATE_NEW_SAVE=${GENERATE_NEW_SAVE:-true}
@@ -48,7 +48,7 @@ services:
     container_name: borgmatic-factorio
     restart: unless-stopped
     environment:
-      - TZ=${TZ:-UTC}
+      - TZ=UTC
       - BACKUP_NAME=${BACKUP_NAME:-factorio}
       - BACKUP_CRON=${BACKUP_CRON:-0 */6 * * *}
     volumes:
@@ -64,8 +64,7 @@ services:
   # ===========================================================================
   # Map Preview Generator (one-shot service)
   # ===========================================================================
-  # Usage: docker compose --profile gen-map run gen-map [seed]
-  # Or use the helper script: ./scripts/gen-map.sh
+  # Usage: docker compose --profile gen-map run --rm gen-map
   gen-map:
     image: ${FACTORIO_IMAGE:-factoriotools/factorio:stable}
     profiles:
@@ -79,40 +78,14 @@ services:
       - ./data/mods:/factorio/mods:ro
       - ./config:/factorio/config:ro
       - ./output/maps:/output
+      - ./scripts:/scripts:ro
     working_dir: /output
-    entrypoint: ["/bin/sh", "-c"]
-    command:
-      - |
-        echo "=== Factorio Map Preview Generator ==="
-        
-        # If a seed is provided as argument, generate single high-detail preview
-        if [ -n "$$MAP_SEED" ]; then
-          echo "Generating preview for seed: $$MAP_SEED"
-          /opt/factorio/bin/x64/factorio \
-            --generate-map-preview "/output/seed_$${MAP_SEED}.png" \
-            --map-gen-settings /factorio/config/map-gen-settings.json \
-            --map-gen-seed "$$MAP_SEED" \
-            --map-preview-scale 1 \
-            --map-preview-size 4096
-        else
-          echo "Generating $$MAP_PREVIEW_COUNT random map previews..."
-          echo "Scale: $$MAP_PREVIEW_SCALE, Size: $$MAP_PREVIEW_SIZE"
-          /opt/factorio/bin/x64/factorio \
-            --generate-map-preview "/output/preview.png" \
-            --map-gen-settings /factorio/config/map-gen-settings.json \
-            --map-preview-count "$$MAP_PREVIEW_COUNT" \
-            --map-preview-scale "$$MAP_PREVIEW_SCALE" \
-            --map-preview-size "$$MAP_PREVIEW_SIZE"
-        fi
-        
-        echo "=== Map previews generated in /output ==="
-        ls -la /output/*.png 2>/dev/null || echo "No PNG files found"
+    entrypoint: ["/bin/sh", "/scripts/gen-map.sh"]
 
   # ===========================================================================
   # World Creator (one-shot service)
   # ===========================================================================
-  # Usage: docker compose --profile create-world run create-world
-  # Creates a new world save with the configured seed and settings
+  # Usage: docker compose --profile create-world run --rm create-world
   create-world:
     image: ${FACTORIO_IMAGE:-factoriotools/factorio:stable}
     profiles:
@@ -124,35 +97,8 @@ services:
       - ./data/saves:/factorio/saves
       - ./data/mods:/factorio/mods:ro
       - ./config:/factorio/config:ro
-    entrypoint: ["/bin/sh", "-c"]
-    command:
-      - |
-        echo "=== Factorio World Creator ==="
-        SAVE_FILE="/factorio/saves/$${SAVE_NAME}.zip"
-        
-        if [ -f "$$SAVE_FILE" ]; then
-          echo "WARNING: Save file already exists at $$SAVE_FILE"
-          echo "Delete or rename it first if you want to create a new world."
-          exit 1
-        fi
-        
-        # Build the create command with optional seed
-        CMD="/opt/factorio/bin/x64/factorio --create $$SAVE_FILE"
-        CMD="$$CMD --map-gen-settings /factorio/config/map-gen-settings.json"
-        CMD="$$CMD --map-settings /factorio/config/map-settings.json"
-        
-        if [ -n "$$MAP_SEED" ]; then
-          echo "Using seed: $$MAP_SEED"
-          CMD="$$CMD --map-gen-seed $$MAP_SEED"
-        else
-          echo "Using random seed"
-        fi
-        
-        echo "Creating world: $$SAVE_FILE"
-        eval "$$CMD"
-        
-        echo "=== World created successfully ==="
-        ls -la /factorio/saves/
+      - ./scripts:/scripts:ro
+    entrypoint: ["/bin/sh", "/scripts/create-world.sh"]
 
 # =============================================================================
 # Secrets Configuration

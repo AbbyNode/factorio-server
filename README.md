@@ -1,14 +1,6 @@
 # Factorio Server (Docker)
 
-A containerized Factorio dedicated server setup with automated backups, easy mod management, and convenient map generation tools.
-
-## Features
-
-- 🐳 **Docker-based**: Uses the official `factoriotools/factorio` image
-- 🔄 **Automatic mod updates**: Mods download and update automatically from the Factorio mod portal
-- 🗺️ **Map preview generation**: Generate map preview PNGs to find the perfect seed
-- 💾 **Automated backups**: Borgmatic-based backup system with configurable retention
-- ⚙️ **Simple configuration**: All settings via `.env` file and JSON configs
+Containerized Factorio dedicated server with automated backups and map generation tools.
 
 ## Quick Start
 
@@ -26,7 +18,6 @@ Edit `.env` to configure:
 - `SAVE_NAME`: Name for your world save
 - `MAP_SEED`: Seed for world generation (leave empty for random)
 - `USERNAME` / `TOKEN`: Your Factorio.com credentials for mod downloads
-- `PORT`: Server port (default: 34197)
 
 ### 2. Set Up Mods (Optional)
 
@@ -48,17 +39,14 @@ With `UPDATE_MODS_ON_START=true` and valid `USERNAME`/`TOKEN`, mods will downloa
 Find the perfect map seed before creating your world:
 
 ```bash
-# Generate 100 random low-detail previews
-./scripts/gen-map.sh random
+# Generate random low-detail previews (default: 100)
+docker compose --profile gen-map run --rm gen-map
 
-# Or with a custom count
-./scripts/gen-map.sh random 50
-
-# Once you find seeds you like, generate high-detail previews
-./scripts/gen-map.sh seed 123456
+# Generate high-detail preview for specific seed
+docker compose --profile gen-map run --rm -e MAP_SEED=123456 gen-map
 ```
 
-Preview images will be saved to `./output/maps/`.
+Preview images are saved to `./output/maps/`.
 
 ### 4. Create World
 
@@ -127,11 +115,12 @@ factorio-server/
 ├── borgmatic/              # Backup configuration
 │   ├── config.yaml
 │   └── entrypoint.sh
+├── scripts/                # Container scripts
+│   ├── gen-map.sh
+│   └── create-world.sh
 ├── backups/                # Borg backup repository
 ├── output/                 # Generated content
 │   └── maps/               # Map preview PNGs
-├── scripts/
-│   └── gen-map.sh          # Map preview generation helper
 └── .secrets/               # Secret files (not in git)
     └── borg_passphrase     # Backup encryption key
 ```
@@ -146,8 +135,6 @@ factorio-server/
 | `SAVE_NAME` | `world` | Name of the save file |
 | `GENERATE_NEW_SAVE` | `true` | Create new save if none exists |
 | `LOAD_LATEST_SAVE` | `true` | Load the latest save on startup |
-| `PORT` | `34197` | Game server UDP port |
-| `RCON_PORT` | `27015` | RCON TCP port |
 | `MAP_SEED` | (empty) | World generation seed |
 | `USERNAME` | (empty) | Factorio.com username |
 | `TOKEN` | (empty) | Factorio.com API token |
@@ -157,33 +144,6 @@ factorio-server/
 | `MAP_PREVIEW_SIZE` | `512` | Preview size in pixels |
 | `BACKUP_NAME` | `factorio` | Backup repository name |
 | `BACKUP_CRON` | `0 */6 * * *` | Backup schedule |
-| `TZ` | `UTC` | Timezone |
-
-### Server Settings (config/server-settings.json)
-
-Edit this file to configure:
-- Server name and description
-- Visibility (public/LAN)
-- Player limits
-- Autosave settings
-- Admin permissions
-
-### Map Generation Settings (config/map-gen-settings.json)
-
-Controls world generation:
-- Resource frequency, size, and richness
-- Enemy base settings
-- Starting area size
-- Cliff settings
-- Moisture and terrain
-
-### Map Settings (config/map-settings.json)
-
-Gameplay settings:
-- Pollution mechanics
-- Enemy evolution
-- Enemy expansion
-- Difficulty settings
 
 ## Commands Reference
 
@@ -207,13 +167,13 @@ docker compose restart factorio
 
 ```bash
 # Generate random previews
-./scripts/gen-map.sh random [count]
+docker compose --profile gen-map run --rm gen-map
+
+# Generate with custom count
+docker compose --profile gen-map run --rm -e MAP_PREVIEW_COUNT=50 gen-map
 
 # Generate high-detail preview for specific seed
-./scripts/gen-map.sh seed <seed>
-
-# Or use docker compose directly
-docker compose --profile gen-map run --rm gen-map
+docker compose --profile gen-map run --rm -e MAP_SEED=123456 gen-map
 ```
 
 ### World Creation
@@ -254,13 +214,3 @@ docker compose exec borgmatic borgmatic extract --archive latest --destination /
 ### Backup errors
 - Ensure `.secrets/borg_passphrase` exists (even if empty)
 - Check borgmatic logs: `docker compose logs borgmatic`
-
-## Credits
-
-- [factoriotools/factorio-docker](https://github.com/factoriotools/factorio-docker) - Factorio Docker image
-- [borgmatic-collective/borgmatic](https://github.com/borgmatic-collective/borgmatic) - Backup solution
-- [Factorio](https://factorio.com) - The game
-
-## License
-
-MIT License - See LICENSE file for details.
