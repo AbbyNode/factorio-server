@@ -71,7 +71,6 @@ services:
       - gen-map
     environment:
       - MAP_PREVIEW_COUNT=${MAP_PREVIEW_COUNT:-100}
-      - MAP_PREVIEW_SCALE=${MAP_PREVIEW_SCALE:-4}
       - MAP_PREVIEW_SIZE=${MAP_PREVIEW_SIZE:-512}
       - MAP_SEED=${MAP_SEED:-}
     volumes:

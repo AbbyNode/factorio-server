@@ -1,11 +1,9 @@
 {
-    "_comment": "Map settings for Factorio server. See: https://wiki.factorio.com/Map_settings",
+    "_comment": "Map settings for Factorio 2.0 server. Based on official map-settings.example.json",
     
     "difficulty_settings": {
-        "recipe_difficulty": 0,
-        "technology_difficulty": 0,
         "technology_price_multiplier": 1,
-        "research_queue_setting": "after-victory"
+        "spoil_time_modifier": 1
     },
     "pollution": {
         "enabled": true,
@@ -29,12 +27,11 @@
     },
     "enemy_expansion": {
         "enabled": true,
-        "min_base_spacing": 3,
         "max_expansion_distance": 7,
         "friendly_base_influence_radius": 2,
         "enemy_building_influence_radius": 2,
         "building_coefficient": 0.1,
-        "other_base_coefficient": 2,
+        "other_base_coefficient": 2.0,
         "neighbouring_chunk_coefficient": 0.5,
         "neighbouring_base_chunk_coefficient": 0.4,
         "max_colliding_tiles_coefficient": 0.9,
@@ -47,8 +44,8 @@
         "min_group_gathering_time": 3600,
         "max_group_gathering_time": 36000,
         "max_wait_time_for_late_members": 7200,
-        "max_group_radius": 30,
-        "min_group_radius": 5,
+        "max_group_radius": 30.0,
+        "min_group_radius": 5.0,
         "max_member_speedup_when_behind": 1.4,
         "max_member_slowdown_when_ahead": 0.6,
         "max_group_slowdown_factor": 0.3,
@@ -75,7 +72,7 @@
     "path_finder": {
         "fwd2bwd_ratio": 5,
         "goal_pressure_ratio": 2,
-        "max_steps_worked_per_tick": 100,
+        "max_steps_worked_per_tick": 1000,
         "max_work_done_per_tick": 8000,
         "use_path_cache": true,
         "short_cache_size": 5,
@@ -102,7 +99,14 @@
         "short_request_max_steps": 1000,
         "short_request_ratio": 0.5,
         "min_steps_to_check_path_find_termination": 2000,
-        "start_to_goal_cost_multiplier_to_terminate_path_find": 500
+        "start_to_goal_cost_multiplier_to_terminate_path_find": 2000.0,
+        "overload_levels": [0, 100, 500],
+        "overload_multipliers": [2, 3, 4],
+        "negative_path_cache_delay_interval": 20
+    },
+    "asteroids": {
+        "spawning_rate": 1,
+        "max_ray_portals_expanded_per_tick": 100
     },
     "max_failed_behavior_count": 3
 }

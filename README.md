@@ -140,7 +140,6 @@ factorio-server/
 | `TOKEN` | (empty) | Factorio.com API token |
 | `UPDATE_MODS_ON_START` | `true` | Auto-update mods on start |
 | `MAP_PREVIEW_COUNT` | `100` | Number of random previews |
-| `MAP_PREVIEW_SCALE` | `4` | Preview zoom level |
 | `MAP_PREVIEW_SIZE` | `512` | Preview size in pixels |
 | `BACKUP_NAME` | `factorio` | Backup repository name |
 | `BACKUP_CRON` | `0 */6 * * *` | Backup schedule |
