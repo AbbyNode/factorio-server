@@ -1,0 +1,80 @@
+{
+    "_comment": "Server settings for Factorio. See: https://wiki.factorio.com/Multiplayer",
+    
+    "name": "Factorio Server",
+    "description": "A Factorio multiplayer server",
+    "tags": ["game", "multiplayer"],
+    
+    "_comment_visibility": "public: Game will be visible in the public game browser. private: Only players with the password/link can join.",
+    "visibility": {
+        "public": false,
+        "lan": true
+    },
+    
+    "_comment_credentials": "Your factorio.com login credentials for game visibility and mod updates",
+    "username": "",
+    "password": "",
+    
+    "_comment_token": "Authentication token. May be used instead of password. Get it from https://factorio.com/profile",
+    "token": "",
+    
+    "_comment_game_password": "Password required to join the server. Leave empty for no password.",
+    "game_password": "",
+    
+    "_comment_require_user_verification": "When true, the server verifies that connecting players are logged in to factorio.com",
+    "require_user_verification": true,
+    
+    "_comment_max_players": "Maximum number of players allowed. 0 = unlimited.",
+    "max_players": 0,
+    
+    "_comment_max_upload_in_kilobytes_per_second": "Upload speed limit in KiB/s. 0 = unlimited.",
+    "max_upload_in_kilobytes_per_second": 0,
+    
+    "_comment_max_upload_slots": "Maximum number of concurrent upload streams. 0 = unlimited.",
+    "max_upload_slots": 5,
+    
+    "_comment_minimum_latency_in_ticks": "Minimum latency to ensure smooth gameplay. 0 = auto.",
+    "minimum_latency_in_ticks": 0,
+    
+    "_comment_max_heartbeats_per_second": "Network heartbeat frequency. Higher = more responsive but more bandwidth.",
+    "max_heartbeats_per_second": 60,
+    
+    "_comment_ignore_player_limit_for_returning_players": "Allow returning players to join even if server is full.",
+    "ignore_player_limit_for_returning_players": false,
+    
+    "_comment_allow_commands": "Allow console commands. Options: true, false, admins-only",
+    "allow_commands": "admins-only",
+    
+    "_comment_autosave_interval": "Autosave interval in minutes.",
+    "autosave_interval": 10,
+    
+    "_comment_autosave_slots": "Number of autosave slots before overwriting. Server only option.",
+    "autosave_slots": 5,
+    
+    "_comment_afk_autokick_interval": "Kick players after N minutes of inactivity. 0 = never.",
+    "afk_autokick_interval": 0,
+    
+    "_comment_auto_pause": "Pause the game when no players are connected. Highly recommended for multiplayer.",
+    "auto_pause": true,
+    
+    "_comment_only_admins_can_pause_the_game": "Only admins can pause/unpause the game.",
+    "only_admins_can_pause_the_game": true,
+    
+    "_comment_autosave_only_on_server": "Only the server saves (not the client).",
+    "autosave_only_on_server": true,
+    
+    "_comment_non_blocking_saving": "Experimental: Save in background thread. May cause desyncs.",
+    "non_blocking_saving": false,
+    
+    "_comment_minimum_segment_size": "Long-reach setting.",
+    "minimum_segment_size": 25,
+    
+    "_comment_minimum_segment_size_peer_count": "Peer count threshold for segment size.",
+    "minimum_segment_size_peer_count": 20,
+    
+    "_comment_maximum_segment_size": "Maximum segment size.",
+    "maximum_segment_size": 100,
+    
+    "_comment_maximum_segment_size_peer_count": "Peer count threshold for max segment size.",
+    "maximum_segment_size_peer_count": 10
+}

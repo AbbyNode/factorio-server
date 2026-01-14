@@ -1,0 +1,10 @@
+{
+    "_comment": "Example mod-list.json - Copy this to data/mods/mod-list.json to use mods",
+    "_comment2": "With UPDATE_MODS_ON_START=true and valid USERNAME/TOKEN, mods will auto-download",
+    "mods": [
+        {
+            "name": "base",
+            "enabled": true
+        }
+    ]
+}

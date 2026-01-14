@@ -1,0 +1,29 @@
+# =============================================================================
+# Factorio Server .gitignore
+# =============================================================================
+
+# Environment files with secrets
+.env
+
+# Secrets directory
+.secrets/
+
+# Runtime data
+data/
+backups/
+output/
+
+# Temporary files
+*.tmp
+*.log
+*.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
