@@ -1,0 +1,107 @@
+# =============================================================================
+# Factorio Server - Docker Compose Configuration
+# =============================================================================
+# 
+# Usage:
+#   1. Copy .env.example to .env and configure
+#   2. Generate map previews: docker compose --profile gen-map run --rm gen-map
+#   3. Create world: docker compose --profile create-world run --rm create-world
+#   4. Start server: docker compose up -d factorio
+#   5. Backups run automatically via borgmatic
+#
+# =============================================================================
+
+services:
+  # ===========================================================================
+  # Factorio Game Server
+  # ===========================================================================
+  factorio:
+    image: ${FACTORIO_IMAGE:-factoriotools/factorio:stable}
+    container_name: factorio-server
+    restart: unless-stopped
+    ports:
+      - "34197:34197/udp"
+      - "27015:27015/tcp"
+    environment:
+      - SAVE_NAME=${SAVE_NAME:-world}
+      - GENERATE_NEW_SAVE=${GENERATE_NEW_SAVE:-true}
+      - LOAD_LATEST_SAVE=${LOAD_LATEST_SAVE:-true}
+      - UPDATE_MODS_ON_START=${UPDATE_MODS_ON_START:-true}
+      - USERNAME=${USERNAME:-}
+      - TOKEN=${TOKEN:-}
+      - UPDATE_IGNORE=${UPDATE_IGNORE:-}
+    volumes:
+      - ./data/saves:/factorio/saves
+      - ./data/mods:/factorio/mods
+      - ./config:/factorio/config
+    healthcheck:
+      test: ["CMD-SHELL", "pidof factorio || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ===========================================================================
+  # Borgmatic Backup Service
+  # ===========================================================================
+  borgmatic:
+    image: ghcr.io/borgmatic-collective/borgmatic:latest
+    container_name: borgmatic-factorio
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
+      - BACKUP_NAME=${BACKUP_NAME:-factorio}
+      - BACKUP_CRON=${BACKUP_CRON:-0 */6 * * *}
+    volumes:
+      - ./borgmatic:/etc/borgmatic.d:ro
+      - ./backups:/mnt/borg-repository
+      - ./data/saves:/mnt/source/saves:ro
+      - ./data/mods:/mnt/source/mods:ro
+      - ./config:/mnt/source/config:ro
+    secrets:
+      - borg_passphrase
+    entrypoint: ["/etc/borgmatic.d/entrypoint.sh"]
+
+  # ===========================================================================
+  # Map Preview Generator (one-shot service)
+  # ===========================================================================
+  # Usage: docker compose --profile gen-map run --rm gen-map
+  gen-map:
+    image: ${FACTORIO_IMAGE:-factoriotools/factorio:stable}
+    profiles:
+      - gen-map
+    environment:
+      - MAP_PREVIEW_COUNT=${MAP_PREVIEW_COUNT:-100}
+      - MAP_PREVIEW_SIZE=${MAP_PREVIEW_SIZE:-512}
+      - MAP_SEED=${MAP_SEED:-}
+    volumes:
+      - ./data/mods:/factorio/mods:ro
+      - ./config:/factorio/config:ro
+      - ./output/maps:/output
+      - ./scripts:/scripts:ro
+    working_dir: /output
+    entrypoint: ["/scripts/gen-map.sh"]
+
+  # ===========================================================================
+  # World Creator (one-shot service)
+  # ===========================================================================
+  # Usage: docker compose --profile create-world run --rm create-world
+  create-world:
+    image: ${FACTORIO_IMAGE:-factoriotools/factorio:stable}
+    profiles:
+      - create-world
+    environment:
+      - SAVE_NAME=${SAVE_NAME:-world}
+      - MAP_SEED=${MAP_SEED:-}
+    volumes:
+      - ./data/saves:/factorio/saves
+      - ./data/mods:/factorio/mods:ro
+      - ./config:/factorio/config:ro
+      - ./scripts:/scripts:ro
+    entrypoint: ["/scripts/create-world.sh"]
+
+# =============================================================================
+# Secrets Configuration
+# =============================================================================
+secrets:
+  borg_passphrase:
+    file: ./.secrets/borg_passphrase

@@ -1,0 +1,37 @@
+# Borgmatic Configuration for Factorio Server Backups
+# Documentation: https://torsion.org/borgmatic/docs/reference/configuration/
+
+# Source directories to back up
+source_directories:
+  - /mnt/source/saves
+  - /mnt/source/mods
+  - /mnt/source/config
+
+# Borg repository location
+repositories:
+  - path: /mnt/borg-repository/${BACKUP_NAME}
+
+# Archive name pattern
+archive_name_format: '{hostname}-{now:%Y-%m-%d-%H%M%S}'
+
+# Match archives for pruning (all archives in this repo)
+match_archives: "sh:{hostname}-*"
+
+# Retention policy - keep backups according to this schedule
+keep_within: 2H
+keep_hourly: 24
+keep_daily: 14
+keep_weekly: 12
+keep_monthly: 12
+keep_yearly: 999
+
+# Files/patterns to exclude from backups
+exclude_patterns:
+  - '*.tmp'
+  - '*.lock'
+
+# Compression settings
+compression: auto,zstd
+
+# Logging
+# verbosity: 1
